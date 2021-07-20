@@ -11,12 +11,11 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 async def start_(client: Client, message: Message):
     await message.reply_sticker("CAACAgUAAx0CQ8QTWQACCD9gpSGtPso-JueMmC6tCptx2H6VjAACngEAAmpqaFeIQbV46r_aFh8E")
     await message.reply_text(
-        f"""<b>Hi {message.from_user.first_name}!
-\nI can play music in your group's voice chat
-
-Music Assistant - @anumusicplayer
-\nTo add in your group do /userbotjoin
-\nHit /help list of available commands.
+        f"""<b>مرحبا {message.from_user.first_name}!
+\nI يمكن تشغيل الموسيقى في الدردشة الصوتية لمجموعتك
+مساعد الموسيقى @MUSICEDL
+\nلاضافة البوت المساعد للمجموعة ارسل (دعوة المساعد)
+\nلمعرفة اوامر المساعدة ارسل ( اوامر )
  </b>""",
       
        
@@ -24,12 +23,12 @@ Music Assistant - @anumusicplayer
             [
                 [
                     InlineKeyboardButton(
-                      "✨ Music Assistant", url="https://t.me/anumusicplayer",
+                      "✨ مساعد البوت", url="https://t.me/MUSICEDL",
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "➕ Add To Your Group ➕", url="https://t.me/anuvcbot?startgroup=true"
+                        "➕ اضف البوت لمجموعتك ➕", url="https://t.me/SERRVBOT?startgroup=true"
                     ) 
                 ]
             ]
@@ -37,26 +36,26 @@ Music Assistant - @anumusicplayer
     )
 
 @Client.on_message(
-    filters.command("start")
+    filters.command("/start")
     & filters.group
     & ~ filters.edited
 )
 async def start(client: Client, message: Message):
     await message.reply_text(
-        "💁🏻‍♂️ Do you want to search for a YouTube video?",
+        "💁🏻‍♂️ هل تريد البحث عن فيديو يوتيوب‌‌?",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Music Bot Owner", url="https://t.me/ihatemylife73"
+                        "مطور البوت", url="https://t.me/cDDDD"
                     )
                 ],    
                 [    
                     InlineKeyboardButton(
-                        "✅ Yes", switch_inline_query_current_chat=""
+                        "✅ نعم", switch_inline_query_current_chat=""
                     ),
                     InlineKeyboardButton(
-                        "No ❌", callback_data="close"
+                        "لا ❌", callback_data="close"
                     )
                 ]
             ]
@@ -64,37 +63,34 @@ async def start(client: Client, message: Message):
     )
 
 @Client.on_message(
-    filters.command("help")
+    filters.command("اوامر")
     & filters.private
     & ~ filters.edited
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
         f"""<b>Hi {message.from_user.first_name}!
-\n/play <song name> - play song you requested
-/dplay <song name> - play song you requested via deezer
-/splay <song name> - play song you requested via jio saavn
-/playlist - Show now playing list
-/current - Show now playing
-/song <song name> - download songs you want quickly
-/search <query> - search videos on youtube with details
-/deezer <song name> - download songs you want quickly via deezer
-/saavn <song name> - download songs you want quickly via saavn
-/video <song name> - download videos you want quickly
-\n*Admins only*
-/player - open music player settings panel
-/pause - pause song play
-/resume - resume song play
-/skip - play next song
-/end - stop music play
-/userbotjoin - invite assistant to your chat
-/admincache - Refresh admin list
+\nتشغيل <song name> - لتشغيل الاغنية التي تطلبها
+عرض - عرض قائمة التشغيل
+اغنية <song name> - لتنزيل الاغنيه التي تريدها بسرعة
+بحث <query> - البحث عن مقاطع الفيديو على youtube مع التفاصيل
+ديزر <song name> - قم بتنزيل الأغاني التي تريدها بسرعة عبر deezer
+سافان <song name> - قم بتنزيل الأغاني التي تريدها بسرعة عبر saavn
+فيديو <song name> - قم بتنزيل مقاطع الفيديو التي تريدها بسرعة
+\n*للمشرفين فقط �*
+لوحة الموسيقى - افتح لوحة إعدادات مشغل الموسيقى
+ايقاف - وقفة تشغيل الأغنية
+استئناف - استئناف تشغيل الأغنية
+تخطي - تشغيل الأغنية التالية
+انهاء - وقف تشغيل الموسيقى
+دعوة المساعد - دعوة مساعد إلى الدردشة الخاصة بك
+تحديث الادمنية - لتحديث الادمنية بالمجموعة
  </b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Need Help❓", url="https://t.me/ihatemylife73"
+                        "للاستفسار❓", url="https://t.me/cDDDD"
                     )
                 ]
             ]
